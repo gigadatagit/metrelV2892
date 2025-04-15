@@ -4,7 +4,7 @@ import login as login
 archivo = __file__.split("/")[-1]
 login.generarLogin(archivo)
 if 'usuario' in st.session_state:
-    st.header('Página :orange[principal]')
+    st.header('Información | :orange[Página Principal]')
     
     st.markdown("""
     # 🚀 **:orange[Plataforma Integral de Gestión de Datos - Metrel V2892]**
