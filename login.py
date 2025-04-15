@@ -1,6 +1,7 @@
 # Importamos las librerías necesarias
 import streamlit as st  # Librería para crear aplicaciones web interactivas. Instalación: pip install streamlit
 import pandas as pd  # Librería para manipulación y análisis de datos. Instalación: pip install pandas
+import os
 from streamlit_cookies_controller import CookieController # Librería para manejar cookies en Streamlit. Instalación: pip install streamlit-cookies-controller
 
 # Creamos una instancia de CookieController
@@ -19,7 +20,15 @@ def validarUsuario(usuario,clave):
         bool: True usuario valido, False usuario invalido
     """    
     # Leemos el archivo csv con los usuarios y claves
-    dfusuarios = pd.read_csv('usuarios.csv')
+    # Get the directory of the current script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # Construct the relative path to the CSV file
+    file_path = os.path.join(script_dir, 'usuarios.csv')
+    
+    # Read the CSV file
+    # df = pd.read_csv(file_path)
+    dfusuarios = pd.read_csv(file_path)
     # Filtramos el dataframe para buscar el usuario y la clave
     if len(dfusuarios[(dfusuarios['usuario']==usuario) & (dfusuarios['clave']==clave)])>0:
         # Si el usuario y la clave existen, retornamos True
@@ -37,7 +46,12 @@ def generarMenu(usuario):
     """        
     with st.sidebar: # Creamos una barra lateral para el menú
         # Cargamos la tabla de usuarios
-        dfusuarios = pd.read_csv('usuarios.csv')
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+    
+        # Construct the relative path to the CSV file
+        file_path = os.path.join(script_dir, 'usuarios.csv')
+    
+        dfusuarios = pd.read_csv(file_path)
         # Filtramos la tabla de usuarios por el usuario actual
         dfUsuario =dfusuarios[(dfusuarios['usuario']==usuario)]
         # Cargamos el nombre del usuario
@@ -83,8 +97,19 @@ def validarPagina(pagina,usuario):
         bool: True si tiene permiso, False si no tiene permiso
     """
     # Cargamos la información de usuarios y roles
-    dfusuarios = pd.read_csv('usuarios.csv')
-    dfPaginas = pd.read_csv('rol_paginas.csv')
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # Construct the relative path to the CSV file
+    file_path = os.path.join(script_dir, 'usuarios.csv')
+
+    # Cargamos la información de usuarios y roles
+    script_dir2 = os.path.dirname(os.path.abspath(__file__))
+    
+    # Construct the relative path to the CSV file
+    file_path2 = os.path.join(script_dir2, 'rol_paginas.csv')
+
+    dfusuarios = pd.read_csv(file_path)
+    dfPaginas = pd.read_csv(file_path2)
     dfUsuario =dfusuarios[(dfusuarios['usuario']==usuario)]
     rol= dfUsuario['rol'].values[0]
     dfPagina =dfPaginas[(dfPaginas['pagina'].str.contains(pagina))]
@@ -106,8 +131,19 @@ def generarMenuRoles(usuario):
     """        
     with st.sidebar: # Menú lateral
         # Cargamos la tabla de usuarios y páginas
-        dfusuarios = pd.read_csv('usuarios.csv')
-        dfPaginas = pd.read_csv('rol_paginas.csv')
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+    
+        # Construct the relative path to the CSV file
+        file_path = os.path.join(script_dir, 'usuarios.csv')
+    
+        # Cargamos la información de usuarios y roles
+        script_dir2 = os.path.dirname(os.path.abspath(__file__))
+        
+        # Construct the relative path to the CSV file
+        file_path2 = os.path.join(script_dir2, 'rol_paginas.csv')
+    
+        dfusuarios = pd.read_csv(file_path)
+        dfPaginas = pd.read_csv(file_path2)
         # Filtramos la tabla de usuarios por el usuario actual
         dfUsuario =dfusuarios[(dfusuarios['usuario']==usuario)]
         # Obtenemos el nombre y rol del usuario
