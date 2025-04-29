@@ -67,7 +67,7 @@ if 'usuario' in st.session_state:
             unidadMedidaVoltaje = st.selectbox("Seleccione la Unidad de Medida de Voltajes:", ["mV", "V"])
             unidadMedidaCorriente = st.selectbox("Seleccione la Unidad de Medida de Corrientes:", ["mA", "A"])
             unidadMedidaPotenciaActiva = st.selectbox("Seleccione la Unidad de Medida de Potencias (Activa):", ["W", "kW"])
-            unidadMedidaPotenciaAparente = st.selectbox("Seleccione la Unidad de Medida de Potencias (Aparente):", ["VAR", "kVAR"])
+            unidadMedidaPotenciaAparente = st.selectbox("Seleccione la Unidad de Medida de Potencias (Aparente):", ["VA", "kVA"])
             unidadMedidaPotenciaCapacitiva = st.selectbox("Seleccione la Unidad de Medida de Potencias (Capacitiva):", ["VAR", "kVAR"])
             unidadMedidaPotenciaInductiva = st.selectbox("Seleccione la Unidad de Medida de Potencias (Inductiva):", ["VAR", "kVAR"])
             unidadMedidaEnergiaActiva = st.selectbox("Seleccione la Unidad de Medida de Energías (Activa):", ["Wh", "kWh"])
@@ -84,7 +84,7 @@ if 'usuario' in st.session_state:
             """)
             
             var1 = st.number_input("Ingrese el Valor Nominal de Tensión:", min_value=0.0, max_value=1000.0, step=0.1, format="%.1f")
-            var2 = st.number_input("Ingrese el Valor de la Capacidad del Transformador [kVAR]:", min_value=0.0, max_value=1000000.0, step=0.1, format="%.1f")
+            var2 = st.number_input("Ingrese el Valor de la Capacidad del Transformador [kVA]:", min_value=0.0, max_value=1000000.0, step=0.1, format="%.1f")
             var3 = st.number_input("Ingrese el Valor de Referencia - Desbalance de Tensión [%]:", min_value=0.0, max_value=2.0, step=0.1, format="%.1f")
             var4 = st.number_input("Ingrese el Valor de Referencia - Desbalance de Corriente [%]:", min_value=0.0, max_value=20.0, step=0.1, format="%.1f")
             var5 = st.number_input("Ingrese el Valor de Límite Máximo de Distorsión Armónica de Tensión:", min_value=0.0, max_value=1000.0, step=0.1, format="%.1f")
