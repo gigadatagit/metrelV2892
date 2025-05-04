@@ -7,8 +7,8 @@ if 'usuario' in st.session_state:
     st.header('Información | :orange[Página Principal]')
     
     st.markdown("""
-    # 🚀 **:orange[Plataforma Integral de Gestión de Datos - Metrel V2892]**
-    Bienvenido a **Plataforma Integral de Gestión de Datos - Metrel V2892**, la herramienta diseñada para **automatizar**, **transformar** y **visualizar** información de manera eficiente. 📊✨  
+    # 🚀 **:orange[Plataforma Integral de Gestión de Datos - Metrel 2V]**
+    Bienvenid@ a **Plataforma Integral de Gestión de Datos - Metrel 2V**, la herramienta diseñada para **automatizar**, **transformar** y **visualizar** información de manera eficiente. 📊✨  
 
     ### 🔑 **Características principales**
     - **📥 Procesamiento avanzado de datos:** Carga archivos en formato Parquet y optimiza la transformación y gestión de información.
